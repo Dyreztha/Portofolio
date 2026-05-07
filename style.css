@@ -1022,11 +1022,20 @@ body {
   justify-content: space-between;
   border-bottom: 1px dashed #ccc;
   padding-bottom: 5px;
+  align-items: flex-start;
+  gap: 15px
+  
+}
+
+.info-value {
+  text-align: right;
+  flex: 1; /* Memberikan ruang agar teks bisa mendorong ke kanan */
 }
 
 .info-list li span {
   color: #666;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 @media (max-width: 992px) {
