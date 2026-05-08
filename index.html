@@ -151,11 +151,8 @@
       <h2 class="title lime">
         CERTIFICATES
       </h2>
-
       <div class="cert-wrapper">
         <div class="timeline"></div>
-
-        <!-- Sertifikat 01 -->
         <div class="cert-item">
           <div class="dot-wrapper">
             <div class="dot"></div>
@@ -180,7 +177,6 @@
           </div>
         </div>
 
-        <!-- Sertifikat 02 (Sudah Diperbaiki) -->
         <div class="cert-item">
           <div class="dot-wrapper">
             <div class="dot"></div>
@@ -191,7 +187,7 @@
               <p>
                 Mengikuti Pelatihan Data Analyst Menggunakan Bahasa Pemrograman Python
               </p>
-              <!-- Menambahkan tanda kutip penutup pada href yang terlewat -->
+              
               <a href="https://drive.google.com/drive/folders/1gyV6CB6oTl_7kga5U6Wj4Fu0jBgOGD_D" target="_blank" rel="noopener noreferrer" class="btn-doc">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg" alt="Google Drive">
                 GOOGLE DRIVE
@@ -205,7 +201,6 @@
           </div>
         </div>
         
-        <!-- Sertifikat 03 (Nomor Diperbarui) -->
         <div class="cert-item">
           <div class="dot-wrapper">
             <div class="dot"></div>
@@ -352,7 +347,6 @@
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // Scroll progress bar
     window.addEventListener("scroll", () => {
       let scrollTop = window.scrollY;
       let docHeight = document.body.scrollHeight - window.innerHeight;
@@ -360,7 +354,6 @@
       document.querySelector(".scroll-bar").style.width = scrollPercent + "%";
     });
 
-    // Animations
     gsap.from(".hero-title", {
       opacity: 0,
       y: 100,
@@ -374,7 +367,6 @@
       duration: 1.2
     });
 
-    // Floating tech icons
     gsap.utils.toArray(".tech").forEach((icon, i) => {
       gsap.to(icon, {
         y: -10,
@@ -386,7 +378,6 @@
       });
     });
 
-    // Reveal on scroll
     gsap.utils.toArray("p, .title, h3, h4, .cert-card, .project-card, .contact-box").forEach((el) => {
       gsap.from(el, {
         opacity: 0,
@@ -400,17 +391,19 @@
       });
     });
 
-    // Timeline dot activation
-    gsap.utils.toArray(".cert-item").forEach((item) => {
-      let dot = item.querySelector(".dot");
-      ScrollTrigger.create({
-        trigger: item,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => dot.classList.add("active"),
-        onLeaveBack: () => dot.classList.remove("active")
-      });
-    });
+gsap.utils.toArray(".cert-item").forEach((item) => {
+  let dot = item.querySelector(".dot");
+  
+  ScrollTrigger.create({
+    trigger: item,
+    start: "top 60%", 
+    end: "bottom 40%",
+    onEnter: () => dot.classList.add("active"),
+    onLeave: () => dot.classList.remove("active"),
+    onEnterBack: () => dot.classList.add("active"),
+    onLeaveBack: () => dot.classList.remove("active"),
+  });
+});
   </script>
 
 </body>
